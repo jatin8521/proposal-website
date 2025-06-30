@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Journey 💌</title>
+  <link rel="icon" href="shy.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('questions.jpg') no-repeat center center fixed;
+      background-size: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: -1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      padding: 0 20px;
+      color: #ffd9e0;
+    }
+
+    .message, .question, .response {
+      opacity: 0;
+      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(20px);
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h1 {
+      font-size: 1.7em;
+      color: #f5f2f2;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 14px 30px;
+      margin-top: 15px;
+      font-size: 1.2em;
+      background: linear-gradient(45deg, #ff5e7e, #ff1a4b);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 25px 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .glass-box p {
+      font-size: 1.2em;
+      color: #ffeef4;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.3em; }
+      button { font-size: 1em; padding: 12px 25px; }
+      .glass-box p { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="overlay"></div>
+
+<div class="container">
+  <div class="message" id="m1">Since the moment I met you, everything changed...</div>
+  <div class="message" id="m2">You make my days brighter, my heart warmer, and my world better. 💖</div>
+  <div class="message" id="m3">So today, I just want to ask you something special... 😊</div>
+
+  <!-- First Question -->
+  <div class="question hidden" id="q1">
+    <div class="glass-box">
+      <h1>Do you love me? ❤️</h1>
+      <button onclick="showLoveResponse()">Yes ❤️</button>
+    </div>
+  </div>
+
+  <!-- Response to First Question -->
+  <div class="response hidden" id="r1">
+    <div class="glass-box">
+      <h1>I love you too ❤️</h1>
+      <p>I feel lucky to have someone like you ❤️</p>
+    </div>
+  </div>
+
+  <!-- Second Question -->
+  <div class="question hidden" id="q2">
+    <div class="glass-box">
+      <h1>Will you be my girlfriend/wife? 💍</h1>
+      <button onclick="showFinalResponse()">Yes 💖</button>
+    </div>
+  </div>
+
+  <!-- Final Response before redirection -->
+  <div class="response hidden" id="r2">
+    <div class="glass-box">
+      <h1>Yay! You just made my entire life brighter 🌟</h1>
+      <p>I can't wait to spend every moment with you 💕</p>
+      <button onclick="goToFinal()">Continue ➡️</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const m1 = document.getElementById("m1");
+  const m2 = document.getElementById("m2");
+  const m3 = document.getElementById("m3");
+  const q1 = document.getElementById("q1");
+  const r1 = document.getElementById("r1");
+  const q2 = document.getElementById("q2");
+  const r2 = document.getElementById("r2");
+
+  setTimeout(() => m1.classList.add("visible"), 500);
+  setTimeout(() => m2.classList.add("visible"), 2500);
+  setTimeout(() => m3.classList.add("visible"), 4500);
+  setTimeout(() => {
+    m1.classList.remove("visible");
+    m2.classList.remove("visible");
+    m3.classList.remove("visible");
+    setTimeout(() => {
+      m1.classList.add("hidden");
+      m2.classList.add("hidden");
+      m3.classList.add("hidden");
+      q1.classList.remove("hidden");
+      q1.classList.add("visible");
+    }, 1000);
+  }, 7000);
+
+  function showLoveResponse() {
+    q1.classList.remove("visible");
+    q1.classList.add("hidden");
+    r1.classList.remove("hidden");
+    r1.classList.add("visible");
+    setTimeout(() => {
+      r1.classList.remove("visible");
+      r1.classList.add("hidden");
+      q2.classList.remove("hidden");
+      q2.classList.add("visible");
+    }, 4000);
+  }
+
+  function showFinalResponse() {
+    q2.classList.remove("visible");
+    q2.classList.add("hidden");
+    r2.classList.remove("hidden");
+    r2.classList.add("visible");
+  }
+
+  function goToFinal() {
+    window.location.href = "final.html";
+  }
+</script>
+
+</body>
+</html>

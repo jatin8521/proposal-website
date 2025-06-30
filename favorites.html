@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Favorites ❤️</title>
+  <link rel="icon" href="ham.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+      background: #000;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('favourite.jpg') no-repeat center center fixed;
+      background-size: cover;
+      filter: brightness(0.5) blur(4px);
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 30px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      color: #ff99bb;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      color: #ffddee;
+      margin: 20px 0 10px;
+    }
+
+    .image-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .image-grid img {
+      width: 90px;
+      height: 90px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .line {
+      font-size: 1em;
+      font-style: italic;
+      color: #ffcce6;
+      margin-bottom: 30px;
+      padding: 0 10px;
+    }
+
+    button {
+      padding: 14px 30px;
+      font-size: 1em;
+      background: linear-gradient(45deg, #ff5e7e, #ff1a4b);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      .line {
+        font-size: 0.95em;
+        padding: 0 12px;
+      }
+
+      .image-grid img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.7em;
+      }
+
+      h2 {
+        font-size: 1.2em;
+      }
+
+      .line {
+        font-size: 0.9em;
+      }
+
+      .image-grid img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div class="overlay"></div>
+
+<div class="content">
+  <h1>Things That Make You Smile 💖</h1>
+
+  <h2>Adorable Hamsters 🐹</h2>
+  <div class="image-grid">
+    <img src="hamster.jpeg" alt="Hamster 1">
+    <img src="hamster2.jpeg" alt="Hamster 2">
+    <img src="ham3.jpeg" alt="Hamster 3">
+  </div>
+  <div class="line">I know how much you love these adorable furballs...</div>
+
+  <h2>Your Penguin Soft Toys 🐧</h2>
+  <div class="image-grid">
+    <img src="penguin1.jpeg" alt="Penguin 1">
+    <img src="penguin2.jpeg" alt="Penguin 2">
+    <img src="peng3.jpeg" alt="Penguin 3">
+  </div>
+  <div class="line">These little ones remind me of how warm and cuddly your heart is...</div>
+
+  <h2>Your Italian Favorites 🍝🍹</h2>
+  <div class="image-grid">
+    <img src="lasagna.jpeg" alt="Lasagna">
+    <img src="aglio-olio.jpeg" alt="Aglio Olio">
+    <img src="pina-colada.jpeg" alt="Piña Colada">
+  </div>
+  <div class="line">Delicious treats for the girl with the sweetest taste...</div>
+
+  <button onclick="goToQuestions()">Let’s Begin Something Magical 💞</button>
+</div>
+
+<script>
+  function goToQuestions() {
+    window.location.href = 'questions.html';
+  }
+</script>
+
+</body>
+</html>
